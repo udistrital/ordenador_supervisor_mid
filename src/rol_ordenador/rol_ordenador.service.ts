@@ -51,7 +51,7 @@ export class RolOrdenadorService {
       const parsedData = await this.parseResponse(response.data);
 
       if (parsedData.rol && parsedData.rol.ordenador) {
-        const ordenadores = parsedData.rol.ordenador || [];
+        const ordenadores = parsedData.rol.ordenador;
         const ordenadoresArray = Array.isArray(ordenadores)
           ? ordenadores
           : [ordenadores];
@@ -122,7 +122,7 @@ export class RolOrdenadorService {
       const parsedData = await this.parseResponse(response.data);
 
       if (parsedData.ordenador && parsedData.ordenador.fechas) {
-        const ordenadores = parsedData.ordenador.fechas || [];
+        const ordenadores = parsedData.ordenador.fechas;
         const ordenadoresArray = Array.isArray(ordenadores)
           ? ordenadores
           : [ordenadores];
