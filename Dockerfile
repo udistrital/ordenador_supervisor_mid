@@ -1,9 +1,11 @@
-FROM sleavely/node-awscli:18.x
+FROM node:24-alpine
+
+RUN apk add --no-cache aws-cli
 
 WORKDIR /
 COPY dist dist
 COPY node_modules node_modules
 COPY entrypoint.sh entrypoint.sh
-RUN chmod +x ./ entrypoint.sh
+RUN chmod +x ./entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
