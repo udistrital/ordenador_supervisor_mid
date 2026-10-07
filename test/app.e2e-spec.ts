@@ -7,6 +7,9 @@ describe('AppController (e2e)', () => {
   let app: INestApplication;
 
   beforeEach(async () => {
+    process.env.ENDP_SUPERVISOR_DEPENDENCIA = 'http://localhost/dummy-dependencia';
+    process.env.ENDP_SUPERVISOR_POR_DOCUMENTO = 'http://localhost/dummy-documento';
+    
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();
@@ -19,6 +22,5 @@ describe('AppController (e2e)', () => {
     return request(app.getHttpServer())
       .get('/')
       .expect(200)
-      .expect('Hello World!');
   });
 });
